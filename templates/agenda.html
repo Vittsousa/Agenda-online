@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Agenda Admin</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<h1>📅 Agenda Administrativa</h1>
+
+<a href="/logout">
+Sair
+</a>
+
+<table>
+
+<tr>
+
+<th>ID</th>
+<th>Nome</th>
+<th>Serviço</th>
+<th>Data</th>
+<th>Hora</th>
+<th>Ação</th>
+
+</tr>
+
+{% for a in dados %}
+
+<tr>
+
+<td>{{ a[0] }}</td>
+<td>{{ a[1] }}</td>
+<td>{{ a[2] }}</td>
+<td>{{ a[3] }}</td>
+<td>{{ a[4] }}</td>
+
+<td>
+
+<a href="/cancelar/{{ a[0] }}">
+❌ Cancelar
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/">
+Novo Agendamento
+</a>
+
+</body>
+</html>

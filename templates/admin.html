@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>Painel Admin</h1>
+
+<a href="/logout">
+Sair
+</a>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Nome</th>
+<th>Data</th>
+<th>Hora</th>
+</tr>
+
+{% for a in agendamentos %}
+
+<tr>
+<td>{{ a[0] }}</td>
+<td>{{ a[1] }}</td>
+<td>{{ a[2] }}</td>
+<td>{{ a[3] }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>

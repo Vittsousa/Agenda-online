@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Novo Agendamento</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<h1>Novo Agendamento</h1>
+
+<form action="/agendar" method="POST">
+
+<input
+type="text"
+name="nome"
+placeholder="Nome"
+required>
+
+<select name="servico" id="servico"
+required
+onchange="mostrarPreco()">
+
+<option value="">
+Selecione um serviço
+</option>
+
+<optgroup label="🔮 Leituras">
+
+<option value="Pergunta Avulsa"
+data-preco="28.88">
+Pergunta Avulsa
+</option>
+
+<option value="Leitura dos Caminhos"
+data-preco="68.88">
+Leitura dos Caminhos
+</option>
+
+<option value="Mensagens Espirituais e Ancestrais"
+data-preco="58.88">
+Mensagens Espirituais e Ancestrais
+</option>
+
+<option value="Leitura do Amor"
+data-preco="68.88">
+Leitura do Amor
+</option>
+
+<option value="Leitura do Mês"
+data-preco="68.88">
+Leitura do Mês
+</option>
+
+<option value="Templo da Morte"
+data-preco="78.88">
+Templo da Morte
+</option>
+
+<option value="Leitura Completa"
+data-preco="88.88">
+Leitura Completa
+</option>
+
+<option value="Mandala Anual"
+data-preco="288.88">
+Mandala Anual
+</option>
+
+</optgroup>
+
+<optgroup label="✨ Trabalhos Espirituais">
+
+<option value="Cura Emocional e Harmonia"
+data-preco="298.88">
+Cura Emocional e Harmonia
+</option>
+
+<option value="Proteção e Limpeza"
+data-preco="298.88">
+Proteção e Limpeza
+</option>
+
+<option value="Autoadoçamento"
+data-preco="298.88">
+Autoadoçamento
+</option>
+
+</optgroup>
+
+</select>
+
+<p id="precoServico">
+Valor: —
+</p>
+
+<input
+type="date"
+name="data"
+required>
+
+<input
+type="time"
+name="hora"
+required>
+
+<button type="submit">
+Agendar
+</button>
+
+</form>
+
+<br>
+
+<a href="/login">
+Área Admin
+</a>
+
+<script>
+
+function mostrarPreco() {
+
+var select =
+document.getElementById("servico");
+
+var optionSelecionada =
+select.options[select.selectedIndex];
+
+var preco =
+optionSelecionada.getAttribute("data-preco");
+
+var campoPreco =
+document.getElementById("precoServico");
+
+if (preco) {
+
+campoPreco.innerHTML =
+"Valor: R$ " + preco.replace(".", ",");
+
+} else {
+
+campoPreco.innerHTML =
+"Valor: —";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
